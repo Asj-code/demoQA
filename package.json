@@ -1,0 +1,24 @@
+{
+  "name": "demoqa",
+  "version": "1.0.0",
+  "description": "Demonstration of testing automation",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Asj-code/demoQA.git"
+  },
+  "author": "Andrea Juarez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Asj-code/demoQA/issues"
+  },
+  "homepage": "https://github.com/Asj-code/demoQA#readme",
+  "dependencies": {
+    "chromedriver": "^89.0.0",
+    "geckodriver": "^1.22.2",
+    "selenium-webdriver": "^4.0.0-beta.1"
+  }
+}
