@@ -18,6 +18,11 @@ Open your project folder and run the following commands:
 ```
 
 To execute the project:
+Registation Form
 ```
-> node [project_folder_name]/index.js
+> node registrationForm/index.js
+```  
+Login
+```
+> npm test login/index.js
 ```  
