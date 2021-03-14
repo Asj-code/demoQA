@@ -4,7 +4,7 @@
   "description": "Demonstration of testing automation",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -17,8 +17,12 @@
   },
   "homepage": "https://github.com/Asj-code/demoQA#readme",
   "dependencies": {
+    "chai": "^4.3.4",
     "chromedriver": "^89.0.0",
     "geckodriver": "^1.22.2",
     "selenium-webdriver": "^4.0.0-beta.1"
+  },
+  "devDependencies": {
+    "mocha": "^8.3.2"
   }
 }
