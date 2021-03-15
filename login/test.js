@@ -2,40 +2,40 @@
 require("chromedriver");
 
 // Include selenium webdriver 
-let swd = require("selenium-webdriver");
-let browser = new swd.Builder();
-let tab = browser.forBrowser("chrome").build();
+let webdriver = require("selenium-webdriver");
+let browser = new webdriver.Builder();
+let driver = browser.forBrowser("chrome").build();
 const assert = require('assert');
-By = swd.By,
-until = swd.until;
+By = webdriver.By,
+until = webdriver.until;
 
 
 
 
 // Step 1 - Opening the demoQA login page 
-let tabToOpen = tab.get("https://demoqa.com/login");
+let openBrowser = driver.get("https://demoqa.com/login");
 
-tabToOpen.then(function () {
+openBrowser.then(function () {
         // Timeout to wait if connection is slow 
-        let findTimeOutP =
-            tab.manage().setTimeouts({
+        let setTimeOut =
+            driver.manage().setTimeouts({
                 implicit: 10000, // 10 seconds 
             });
-        return findTimeOutP;
+        return setTimeOut;
     })
     .then(function () {
 
         // Step 2 - Finding the username input 
-        let promiseUsernameBox =
-            tab.findElement(swd.By.id("userName"));
-        return promiseUsernameBox;
+        let usernameField =
+            driver.findElement(webdriver.By.id("userName"));
+        return usernameField;
     })
     .then(function (usernameBox) {
 
         // Step 3 - Entering the username 
-        let promiseFillUsername =
+        let fillUsername =
             usernameBox.sendKeys('andreajuarez');
-        return promiseFillUsername;
+        return fillUsername;
     })
     .then(function () {
         console.log(
@@ -44,16 +44,16 @@ tabToOpen.then(function () {
         );
 
         // Step 4 - Finding the password input 
-        let promisePasswordBox =
-            tab.findElement(swd.By.id("password"));
-        return promisePasswordBox;
+        let passwordField =
+            driver.findElement(webdriver.By.id("password"));
+        return passwordField;
     })
     .then(function (passwordBox) {
 
         // Step 5 - Entering the password 
-        let promiseFillPassword =
+        let fillPassword =
             passwordBox.sendKeys('123445');
-        return promiseFillPassword;
+        return fillPassword;
     })
     .then(function () {
         console.log(
@@ -62,21 +62,21 @@ tabToOpen.then(function () {
         );
 
         // Step 6 - Finding the Sign In button 
-        let promiseLogInBtn = tab.findElement(
-            swd.By.id("login")
+        let loginBtn = driver.findElement(
+            webdriver.By.id("login")
         );
-        return promiseLogInBtn;
+        return loginBtn;
     })
     .then(function (logInBtn) {
 
         // Step 7 - Clicking the Sign In button 
-        let promiseClickLogIn = logInBtn.click();
-        return promiseClickLogIn;
+        let clickLogin = logInBtn.click();
+        return clickLogin;
     })
     .then(function () {
         // Step 8 - Obtain error message text
         let errorMessage =
-            tab.wait(until.elementLocated(By.id('name')), 5000).getText().then(function(txt){
+            driver.wait(until.elementLocated(By.id('name')), 5000).getText().then(function(txt){
                 // Comparing text messages
                 assert.strictEqual('Invalid username or password!', txt);
             });
@@ -84,7 +84,9 @@ tabToOpen.then(function () {
     })
     .then(function () {
         console.log("Error message for invalid password successfuly appears");
+        driver.quit();
     })
     .catch(function (err) {
         console.log("Error ", err, " occurred!");
+        driver.quit();
     });
