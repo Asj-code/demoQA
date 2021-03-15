@@ -9,15 +9,18 @@ To install:
 - [Visual Studio Code](https://code.visualstudio.com/)
 - [Firefox](https://www.mozilla.org/en-US/firefox/new/)
 - [Firefox geckodriver](https://www.npmjs.com/package/selenium-webdriver)
+- [Chrome Driver](https://chromedriver.chromium.org/downloads)
 
 Open your project folder and run the following commands:
 ```
 > npm init  # To setup your project
 > npm install selenium-webdriver
 > npm install geckodriver
+> npm install chromedriver
 ```
 
 To execute the project:
+
 Registation Form
 ```
 > node registrationForm/index.js
